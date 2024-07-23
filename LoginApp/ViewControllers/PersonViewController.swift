@@ -9,21 +9,24 @@ import UIKit
 
 class PersonViewController: UIViewController {
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var surnameLabel: UILabel!
+    
+    var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        navigationItem.title = "\(user.person.name) \(user.person.surname)"
+        navigationItem.backBarButtonItem?.title = navigationItem.title
+        
+        nameLabel.text = "Имя: \(user.person.name)"
+        surnameLabel.text = "Фамилия: \(user.person.surname)"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let personDescribeVC = segue.destination as? PersonDescriptionViewController
+        personDescribeVC?.user = user
     }
-    */
-
+    
 }

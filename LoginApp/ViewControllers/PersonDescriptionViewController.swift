@@ -9,12 +9,16 @@ import UIKit
 
 class PersonDescriptionViewController: UIViewController {
 
+    @IBOutlet var descriptionLabel: UILabel!
+    
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "\(user.person.name) \(user.person.surname) Bio"
+        
+        descriptionLabel.text = user.person.description
     }
 
 }
